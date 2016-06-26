@@ -118,6 +118,8 @@ function ssh() {
 
 if [ -f ~/.zsh_aliases ]; then
   . ~/.zsh_aliases
+else
+  echo "#! /bin/zsh\n" >> .zsh_aliases
 fi
 
 # function jpm {
