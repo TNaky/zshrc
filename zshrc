@@ -84,6 +84,12 @@ if [[ -z $TMUX ]]; then
   export PATH=${PATH}:${HOME}/.nodebrew/current/bin
 fi
 
+# macの場合brwe caskのインストール先ディレクトリを指定
+if [[ $OS == 'mac' ]]; then
+  mkdir -p ${HOME}/Applications/homebrew-cask
+  export HOMEBREW_CASK_OPTS="--appdir=${HOME}/Applications/homebrew-cask"
+fi
+
 # login時にtmuxを起動
 if [[ -z "$TMUX" && -z "$WINDOW" && ! -z "$PS1" ]]; then
   if $(tmux has-session 2> /dev/null); then
